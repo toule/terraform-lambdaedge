@@ -1,13 +1,9 @@
 version: 0.1
 
-env:
-  variables:
-    BUILD_OUTPUT_BUCKET: ""
-
 phases:
   install:
     runtime-versions:
-        java: openjdk8
+      java: openjdk8
     commands:
       - echo "install terraform"
   	  - apt-get install wget unzip
