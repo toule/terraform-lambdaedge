@@ -1,32 +1,32 @@
 version: 0.1
 
 phases:
-  install:
-    runtime-versions:
-      java: openjdk8
-    commands:
-      - echo "install terraform"
-  	  - apt-get install wget unzip
-      - export VER="0.12.1"
-      - wget https://releases.hashicorp.com/terraform/${VER}/terraform_${VER}_linux_amd64.zip
-      - unzip terraform_${VER}_linux_amd64.zip
-      - mv terraform /usr/local/bin/
-      - terraform -v
-  pre_build:
-    commands:
-      - echo "zip -> lambda function"
-      - zip lambda_edge.zip lambda_edge.js
-  build:
-    commands:
-      - echo "terrafrom start"
-      - terraform init
-      - terraform plan
-      - terraform apply -auto-approve
-  post_build:
-    commands:
-      - echo "build completed on `date`"
+   install:
+      runtime-versions:
+         java: openjdk8
+      commands:
+       - echo "install terraform"
+       - apt-get install wget unzip
+       - export VER="0.12.1"
+       - wget https://releases.hashicorp.com/terraform/${VER}/terraform_${VER}_linux_amd64.zip
+       - unzip terraform_${VER}_linux_amd64.zip
+       - mv terraform /usr/local/bin/
+       - terraform -v
+   pre_build:
+      commands:
+       - echo "zip -> lambda function"
+       - zip lambda_edge.zip lambda_edge.js
+   build:
+      commands:
+       - echo "terrafrom start"
+       - terraform init
+       - terraform plan
+       - terraform apply -auto-approve
+   post_build:
+      commands:
+       - echo "build completed on `date`"
 
 artifacts:
-  files:
+   files:
     - **/*
-  discard-paths: yes
+   discard-paths: yes
