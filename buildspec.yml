@@ -6,8 +6,6 @@ phases:
          nodejs: 8
       commands:
        - echo "install"
-       - export BUCKET=terraform-ray-infra-tf-us-east-1
-       - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
    pre_build:
       commands:
        - echo "pre_build nothing"
@@ -17,8 +15,4 @@ phases:
    post_build:
       commands:
        - echo "build completed on `date`"
-
-artifacts:
-   files:
-    - template.yaml
-    - outputtemplate.yaml
+       - aws update-function-code --function-name lambda_edge --zip-file lambda_edge.zip
