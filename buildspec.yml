@@ -3,16 +3,29 @@ version: 0.2
 phases:
    install:
       runtime-versions:
-         nodejs: 8
+         java: openjdk8
       commands:
-       - echo "install"
-   pre_build:
-      commands:
-       - echo "pre_build nothing"
+       - echo Install Start
+       - apt-get install wget unzip
+       - export VER="0.12.1"
+       - wget https://releases.hashicorp.com/terraform/${VER}/terraform_${VER}_linux_amd64.zip
+       - unzip terraform_${VER}_linux_amd64.zip
+       - mv terraform /usr/local/bin/
+       - terraform -v
+       - aws s3 cp s3://test-ray-credential/credential/credentials . --recursive
+       - aws s3 cp s3://terraform-ray-infra-tf-us-east-1/state/terraform.state . --recursive
    build:
       commands:
-       - echo "build nothing"
+       - echo Build started on 'date'
+       - terraform init
+       - terraform plan
+       - terraform apply -auto-approve
+       - aws s3 cp terraform.tfstate s3://terraform-ray-infra-tf-us-east-1/state/terraform.state
    post_build:
       commands:
-       - echo "build completed on `date`"
-       - aws update-function-code --function-name lambda_edge --zip-file lambda_edge.zip
+       - echo build compeleted on 'date'
+       - ls -al
+artifacts:
+   files:
+    - '**/*'
+   name: arti-$(date+%Y-%m-%d)
