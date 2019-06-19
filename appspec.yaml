@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+ - lambda_edge:
+      Type: AWS::Lambda::Function
+      Properties:
+         Name: "lambda_edge"
+         Alias: "lambda_edgeAlias"
+         CurrentVersion: ""
+         TargetVersion: ""
