@@ -17,8 +17,6 @@ phases:
    build:
       commands:
        - echo Build started on 'date'
-       - terraform init
-       - terraform plan
        - terraform apply -auto-approve
        - aws s3 cp terraform.tfstate s3://terraform-ray-infra-tf-us-east-1/state/terraform.state
    post_build:
