@@ -28,6 +28,7 @@ resource "aws_iam_role_policy" "codepipeline_policy_edge" {
     {
       "Effect":"Allow",
       "Action": [
+	    "iam:*",
         "s3:*",
 		"lambda:*",
 		"kms:*"
@@ -105,7 +106,8 @@ resource "aws_iam_role_policy" "build_policy_edge" {
       "Action": [
         "s3:*",
 		"kms:*",
-		"codebuild:*"
+		"codebuild:*",
+		"iam:*"
       ],
       "Resource": "*"
     }
