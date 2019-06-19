@@ -8,5 +8,5 @@ Resources:
          CurrentVersion: "Latest"
          TargetVersion: "Latest"
 Hooks:
- - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
- - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+ - BeforeAllowTraffic: "lambda_edge"
+ - AfterAllowTraffic: "lambda_edge"
