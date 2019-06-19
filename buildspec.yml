@@ -13,8 +13,9 @@ phases:
        - mv terraform /usr/local/bin/
        - terraform -v
        - cd pipeline
-       - aws s3 cp s3://test-ray-credential/credential/credentials . --recursive
-       - aws s3 cp s3://terraform-ray-infra-tf-us-east-1/state/terraform.state . --recursive
+       - aws s3 cp s3://test-ray-credential/credential/credentials .
+       - aws s3 cp s3://terraform-ray-infra-tf-us-east-1/state/terraform.state .
+       - ls -al
    build:
       commands:
        - echo Build started on 'date'
