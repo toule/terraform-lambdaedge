@@ -5,11 +5,12 @@ phases:
       runtime-versions:
          nodejs: 8
       commands:
-       - echo "Not install"
+       - echo "install"
+       - export BUCKET=terraform-ray-infra-tf-us-east-1
+	   - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
    pre_build:
       commands:
-       - echo "zip -> lambda function"
-       - zip lambda_edge.zip lambda_edge.js
+       - echo "pre_build nothing"
    build:
       commands:
        - echo "build nothing"
@@ -19,5 +20,5 @@ phases:
 
 artifacts:
    files:
-    - "**/*"
-   discard-paths: yes
+    - template.yaml
+    - outputtemplate.yaml
