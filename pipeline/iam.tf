@@ -28,7 +28,8 @@ resource "aws_iam_role_policy" "codepipeline_policy_edge" {
     {
       "Effect":"Allow",
       "Action": [
-	    "iam:*",
+	    "iam:GetRole",
+		"iam:PassRole",
         "s3:*",
 		"lambda:*",
 		"kms:*"
@@ -39,10 +40,7 @@ resource "aws_iam_role_policy" "codepipeline_policy_edge" {
       "Effect": "Allow",
       "Action": [
         "codebuild:*",
-		"codedeploy:*",
-		"codepipeline:*",
-		"cloudformation:*",
-		"iam:*"
+		"codepipeline:*"
       ],
       "Resource": "*"
     }
@@ -107,7 +105,8 @@ resource "aws_iam_role_policy" "build_policy_edge" {
         "s3:*",
 		"kms:*",
 		"codebuild:*",
-		"iam:*"
+		"iam:GetRole",
+		"iam:PassRole"
       ],
       "Resource": "*"
     }
@@ -152,7 +151,9 @@ resource "aws_iam_role_policy" "lambda_policy" {
       "Action": [
         "s3:*",
 		"lambda:*",
-		"kms:*"
+		"kms:*",
+		"iam:GetRole",
+		"iam:PassRole"
       ],
       "Resource" : "*"
     },
@@ -160,7 +161,6 @@ resource "aws_iam_role_policy" "lambda_policy" {
       "Effect": "Allow",
       "Action": [
         "cloudfront:*",
-		"iam:*"
       ],
       "Resource": "*"
     }
