@@ -40,7 +40,8 @@ resource "aws_iam_role_policy" "codepipeline_policy_edge" {
       "Effect": "Allow",
       "Action": [
         "codebuild:*",
-		"codepipeline:*"
+		"codepipeline:*",
+		"cloudfront:*"
       ],
       "Resource": "*"
     }
