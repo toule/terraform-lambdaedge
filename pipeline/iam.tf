@@ -108,9 +108,8 @@ resource "aws_iam_role_policy" "build_policy_edge" {
 		"codebuild:*",
 		"lambda:*",
 		"cloudfront:*",
-		"iam:GetRole",
-		"iam:GetRolePolicy",
-		"iam:PassRole"
+		"dynamodb:*",
+		"iam:*"
       ],
       "Resource": "*"
     }

@@ -1,5 +1,6 @@
 resource "aws_cloudfront_distribution" "edge_distribution" {
 	enabled = "true"
+	comment = "cloudfront lambda edge CI/CD Test"
 	origin {
 		domain_name = "aws.amazon.com"
 		origin_id = "MyOrigin"
@@ -31,7 +32,7 @@ resource "aws_cloudfront_distribution" "edge_distribution" {
 
 		lambda_function_association {
 			event_type = "origin-request"
-			lambda_arn = "${aws_lambda_function.lambda_edge.qualified_arn}"
+			lambda_arn = "${aws_lambda_function.lambda_edge_stage.qualified_arn}"
 			include_body = false
 		}
 	}
