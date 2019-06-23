@@ -105,6 +105,7 @@ resource "aws_iam_role_policy" "build_policy_edge" {
         "s3:*",
 		"kms:*",
 		"codepipeline:*",
+		"codebuild:*",
 		"lambda:*",
 		"cloudfront:*",
 		"iam:GetRole",
