@@ -13,6 +13,7 @@ phases:
        - mv terraform /usr/local/bin/
        - terraform -v
        - zip lambda_edge_test.zip lambda_edge.js
+       - mv iam_build.tf pipeline/
        - cd pipeline
        - aws s3 cp s3://test-ray-credential/credential/credentials .
        - terraform init
