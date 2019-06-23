@@ -106,7 +106,9 @@ resource "aws_iam_role_policy" "build_policy_edge" {
 		"kms:*",
 		"codebuild:*",
 		"lambda:*",
+		"cloudfront:GetDistribution",
 		"iam:GetRole",
+		"iam:GetRolePolicy",
 		"iam:PassRole"
       ],
       "Resource": "*"
@@ -155,7 +157,8 @@ resource "aws_iam_role_policy" "lambda_policy" {
 		"kms:*",
 		"codebuild:*",
 		"iam:GetRole",
-		"iam:PassRole"
+		"iam:PassRole",
+		"iam:GetRolePolicy"
       ],
       "Resource" : "*"
     },
