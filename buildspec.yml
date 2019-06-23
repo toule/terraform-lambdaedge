@@ -15,7 +15,7 @@ phases:
        - zip lambda_edge_test.zip lambda_edge.js
        - cd pipeline
        - aws s3 cp s3://test-ray-credential/credential/credentials .
-#       - terraform init
+       - terraform init
        - aws s3 cp s3://terraform-ray-infra-tf-us-east-1/state/terraform.tfstate .
        - ls -al
    build:
