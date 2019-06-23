@@ -105,6 +105,7 @@ resource "aws_iam_role_policy" "build_policy_edge" {
         "s3:*",
 		"kms:*",
 		"codebuild:*",
+		"lambda:*",
 		"iam:GetRole",
 		"iam:PassRole"
       ],
@@ -152,6 +153,7 @@ resource "aws_iam_role_policy" "lambda_policy" {
         "s3:*",
 		"lambda:*",
 		"kms:*",
+		"codebuild:*",
 		"iam:GetRole",
 		"iam:PassRole"
       ],
