@@ -34,7 +34,7 @@ resource "aws_codepipeline" "terraform_pipeline" {
         Owner = "toule"
         Repo = "terraform-lambdaedge"
         Branch = "master"
-		OAuthToken = "b8accd6ddc95d07a535e97c17f6cbf221fed8321"
+		OAuthToken = "65559d06068a99a7942e7c8ae71704adde5240b6"
       }
     }
   }
