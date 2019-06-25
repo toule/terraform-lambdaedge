@@ -11,6 +11,7 @@ phases:
    build:
       commands:
        - echo Build started on 'date'
+       - ls -al /root/
        - cp -a /root/pipeline pipeline
        - cp -a lambda_edge_test.zip /pipeline/lambda_edge_test.zip
        - cd pipeline
