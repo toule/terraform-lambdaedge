@@ -6,6 +6,7 @@ phases:
          java: openjdk8
       commands:
        - echo Install Start
+       - cat lambda_edge.js
        - zip lambda_edge_test.zip lambda_edge.js
 #       - aws s3 cp s3://test-ray-credential/credential/credentials .
    build:
