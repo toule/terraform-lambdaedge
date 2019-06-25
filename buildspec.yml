@@ -11,6 +11,7 @@ phases:
    build:
       commands:
        - echo Build started on 'date'
+       - ls -al
        - terraform init
        - terraform plan -lock=false
        - terraform apply -auto-approve -lock=false
