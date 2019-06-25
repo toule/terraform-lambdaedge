@@ -16,6 +16,7 @@ phases:
        - ls -al
        - cd pipeline
        - terraform init
+       - ls -al
        - terraform plan -lock=false
        - terraform apply -auto-approve -lock=false
    post_build:
