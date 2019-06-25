@@ -12,7 +12,8 @@ phases:
       commands:
        - echo Build started on 'date'
        - cp -a /root/pipeline pipeline
-       - cp -a lambda_edge_test.zip /pipeline/lambda_edge_test.zip
+       - cp -a lambda_edge_test.zip /pipeline/
+       - ls -al
        - cd pipeline
        - terraform init
        - terraform plan -lock=false
