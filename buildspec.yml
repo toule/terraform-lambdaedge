@@ -8,7 +8,6 @@ phases:
        - echo Install Start
        - zip lambda_edge_test.zip lambda_edge.js
 #       - aws s3 cp s3://test-ray-credential/credential/credentials .
-       - $(aws ecr get-login --no-include-email --region us-east-1)
        - terraform init
    build:
       commands:
