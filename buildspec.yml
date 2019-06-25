@@ -6,24 +6,14 @@ phases:
          java: openjdk8
       commands:
        - echo Install Start
-       - apt-get install wget unzip
-       - export VER="0.12.1"
-       - wget https://releases.hashicorp.com/terraform/${VER}/terraform_${VER}_linux_amd64.zip
-       - unzip terraform_${VER}_linux_amd64.zip
-       - mv terraform /usr/local/bin/
-       - terraform -v
        - zip lambda_edge_test.zip lambda_edge.js
-       - cd pipeline
-       - aws s3 cp s3://test-ray-credential/credential/credentials .
-#       - aws s3 cp s3://terraform-ray-infra-tf-us-east-1/state/terraform.tfstate .
+#       - aws s3 cp s3://test-ray-credential/credential/credentials .
        - terraform init
-       - ls -al
    build:
       commands:
        - echo Build started on 'date'
        - terraform plan
        - terraform apply -auto-approve
-#       - aws s3 cp terraform.tfstate s3://terraform-ray-infra-tf-us-east-1/state/terraform.tfstate
    post_build:
       commands:
        - echo build compeleted on 'date'
