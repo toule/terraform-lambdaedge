@@ -8,10 +8,10 @@ phases:
        - echo Install Start
        - zip lambda_edge_test.zip lambda_edge.js
 #       - aws s3 cp s3://test-ray-credential/credential/credentials .
-       - terraform init
    build:
       commands:
        - echo Build started on 'date'
+       - terraform init
        - terraform plan -lock=false
        - terraform apply -auto-approve -lock=false
    post_build:
