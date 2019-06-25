@@ -12,6 +12,7 @@ phases:
       commands:
        - echo Build started on 'date'
        - ls -al
+       - ls -al /root/.aws
        - cd pipeline
        - terraform init
        - terraform plan -lock=false
